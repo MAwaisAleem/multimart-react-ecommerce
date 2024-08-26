@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import "./navbar.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+
 const NavBar = () => {
   const { cartList } = useSelector((state) => state.cart);
   const [expand, setExpand] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
+
   // fixed Header
   function scrollHandler() {
     if (window.scrollY >= 100) {
@@ -16,12 +18,7 @@ const NavBar = () => {
     }
   }
   window.addEventListener("scroll", scrollHandler);
-  // useEffect(()=> {
-  //   if(CartItem.length ===0) {
-  //     const storedCart = localStorage.getItem("cartItem");
-  //     setCartItem(JSON.parse(storedCart));
-  //   }
-  // },[])
+
   return (
     <Navbar
       fixed="top"
